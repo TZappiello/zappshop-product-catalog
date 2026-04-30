@@ -22,9 +22,12 @@ Contract.make {
                 brand: "Deep Driver",
                 regularPrice: 1500.00,
                 salePrice: 1200.00,
-                inStock: false,
+                inStock: true,
                 enabled: true,
-                categoryId: anyUuid(),
+                category:[
+                        id:  anyUuid(),
+                        name: "Gaming"
+                ],
                 description: 'A Gamer Notebook'
         ])
 
