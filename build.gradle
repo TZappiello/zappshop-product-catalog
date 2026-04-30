@@ -1,5 +1,8 @@
+import org.gradle.api.publish.maven.MavenPublication
+
 plugins {
 	id 'java'
+	id 'maven-publish'
 	id 'org.springframework.boot' version '3.5.14'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id 'org.springframework.cloud.contract' version '4.3.3'
@@ -16,6 +19,20 @@ java {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			groupId = 'com.zappshop'
+			artifactId = 'product-catalog'
+			version = '0.0.1-SNAPSHOT'
+
+			artifact bootJar
+			artifact verifierStubsJar
+		}
+	}
 }
 
 ext {
