@@ -50,17 +50,17 @@ Contract.make {
         body([
                 id: anyUuid(),
                 addedAt: anyIso8601WithOffset(),
-                name        : "Notebook X11",
-                brand       : "Deep Driver",
-                regularPrice: 1500.00,
-                salePrice   : 1200.00,
+                name        : fromRequest().body('$.name'),
+                brand       : fromRequest().body('$.brand'),
+                regularPrice: fromRequest().body('$.regularPrice'),
+                salePrice   : fromRequest().body('$.salePrice'),
                 inStock     : false,
-                enabled     : true,
+                enabled     : fromRequest().body('$.enabled'),
                 category    : [
-                        id: "7f1a3b2c-9d8e-4a5b-8c7d-6e5f4a3b2c1d",
+                        id: fromRequest().body('$.categoryId'),
                         name: "Gaming"
                 ],
-                description : 'A Gamer Notebook'
+                description : fromRequest().body('$.description')
         ])
     }
 }
