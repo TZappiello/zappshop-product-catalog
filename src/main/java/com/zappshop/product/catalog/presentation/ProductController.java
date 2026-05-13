@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -48,6 +49,54 @@ public class ProductController {
                         .name("Gaming")
                         .build())
                 .description("A Gamer Notebook")
+                .build();
+    }
+
+    @GetMapping
+    public PageModel<ProductDetailOutput> findAll(
+            @RequestParam(name = "size", required = false) Integer size,
+            @RequestParam(name = "number", required = false) Integer number
+    ) {
+        return PageModel.<ProductDetailOutput>builder()
+                .number(0)
+                .size(size)
+                .totalElements(2)
+                .totalPages(1)
+                .content(
+                        List.of(
+                                ProductDetailOutput.builder()
+                                        .id(UUID.randomUUID())
+                                        .addedAt(OffsetDateTime.now())
+                                        .name("Notebook X11")
+                                        .brand("Deep Driver")
+                                        .regularPrice(new BigDecimal(1500.00))
+                                        .salePrice(new BigDecimal(1200.00))
+                                        .inStock(true)
+                                        .enabled(true)
+                                        .category(CategoryMinimalOutput.builder()
+                                                .id(UUID.randomUUID())
+                                                .name("Gaming")
+                                                .build())
+                                        .description("A Gamer Notebook")
+                                        .build(),
+
+                                ProductDetailOutput.builder()
+                                        .id(UUID.randomUUID())
+                                        .addedAt(OffsetDateTime.now())
+                                        .name("Desktop I9000")
+                                        .brand("Deep Driver")
+                                        .regularPrice(new BigDecimal(3500.00))
+                                        .salePrice(new BigDecimal(3200.00))
+                                        .inStock(false)
+                                        .enabled(true)
+                                        .category(CategoryMinimalOutput.builder()
+                                                .id(UUID.randomUUID())
+                                                .name("Desktop")
+                                                .build())
+                                        .description("A Gamer Desktop")
+                                        .build()
+                        )
+                )
                 .build();
     }
 }
