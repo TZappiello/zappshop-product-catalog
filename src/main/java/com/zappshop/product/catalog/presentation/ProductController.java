@@ -1,5 +1,9 @@
 package com.zappshop.product.catalog.presentation;
 
+import com.zappshop.product.catalog.presentation.application.product.management.ProductInput;
+import com.zappshop.product.catalog.presentation.application.product.query.CategoryMinimalOutput;
+import com.zappshop.product.catalog.presentation.application.product.query.PageModel;
+import com.zappshop.product.catalog.presentation.application.product.query.ProductDetailOutput;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
