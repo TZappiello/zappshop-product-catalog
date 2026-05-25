@@ -37,28 +37,7 @@ public class ProductController {
             @RequestParam(name = "size", required = false) Integer size,
             @RequestParam(name = "number", required = false) Integer number
     ) {
-        return PageModel.<ProductDetailOutput>builder()
-                .number(0)
-                .size(size)
-                .totalElements(2)
-                .totalPages(1)
-                .content(
-                        List.of(
-                                ProductDetailOutput.builder()
-                                        .id(UUID.randomUUID())
-                                        .addedAt(OffsetDateTime.now())
-                                        .name("Notebook X11")
-                                        .brand("Deep Driver")
-                                        .regularPrice(new BigDecimal(1500.00))
-                                        .salePrice(new BigDecimal(1200.00))
-                                        .inStock(true)
-                                        .enabled(true)
-                                        .category(CategoryMinimalOutput.builder()
-                                                .id(UUID.randomUUID())
-                                                .name("Gaming")
-                                                .build())
-                                        .description("A Gamer Notebook")
-                                        .build(),
+        return productQueryService.filter(size, number);
 
     }
 }
