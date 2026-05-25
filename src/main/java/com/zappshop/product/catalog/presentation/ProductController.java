@@ -29,21 +29,7 @@ public class ProductController {
 
     @GetMapping("{productId}")
     public ProductDetailOutput findById(@PathVariable UUID productId) {
-        return ProductDetailOutput.builder()
-                .id(productId)
-                .addedAt(OffsetDateTime.now())
-                .name("Notebook X11")
-                .brand("Deep Driver")
-                .regularPrice(new BigDecimal(1500.00))
-                .salePrice(new BigDecimal(1200.00))
-                .inStock(true)
-                .enabled(true)
-                .category(CategoryMinimalOutput.builder()
-                        .id(UUID.randomUUID())
-                        .name("Gaming")
-                        .build())
-                .description("A Gamer Notebook")
-                .build();
+        return productQueryService.findById(productId);
     }
 
     @GetMapping
