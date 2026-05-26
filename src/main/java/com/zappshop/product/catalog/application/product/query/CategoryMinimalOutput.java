@@ -1,4 +1,4 @@
-package com.zappshop.product.catalog.presentation;
+package com.zappshop.product.catalog.application.product.query;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
