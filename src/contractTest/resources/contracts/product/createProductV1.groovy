@@ -28,7 +28,7 @@ Contract.make {
                             stub(number())
                     ),
                     enabled     : value(
-                            test(false),
+                            test(true),
                             stub(anyBoolean())
                     ),
                     categoryId  : value(
@@ -54,10 +54,10 @@ Contract.make {
                 brand       : fromRequest().body('$.brand'),
                 regularPrice: fromRequest().body('$.regularPrice'),
                 salePrice   : fromRequest().body('$.salePrice'),
-                inStock     : false,
+                inStock     : anyBoolean(),
                 enabled     : fromRequest().body('$.enabled'),
                 category    : [
-                        id: fromRequest().body('$.categoryId'),
+                        id: anyUuid(),
                         name: "Gaming"
                 ],
                 description : fromRequest().body('$.description')
