@@ -22,9 +22,17 @@ Contract.make {
         }
         body([
                 instance: fromRequest().path(),
-                type: "/erros/invalid-fields",
-                title: "Invalid Fields",
-                "detail": "One or more fields are invalid"
+                type    : "/erros/invalid-fields",
+                title   : "Invalid Fields",
+                detail  : "One or more fields are invalid",
+                fields  : [
+                        name        : anyNonBlankString(),
+                        brand       : anyNonBlankString(),
+                        regularPrice: anyNonBlankString(),
+                        salePrice   : anyNonBlankString(),
+                        enabled     : anyNonBlankString(),
+                        categoryId  : anyNonBlankString()
+                ]
         ])
     }
 }
