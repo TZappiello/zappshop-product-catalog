@@ -1,13 +1,13 @@
 package com.zappshop.product.catalog.contract.base;
 
 import com.zappshop.product.catalog.application.ResoucerNotFoundExcetion;
-import com.zappshop.product.catalog.presentation.ProductController;
 import com.zappshop.product.catalog.application.product.management.ProductInput;
 import com.zappshop.product.catalog.application.product.management.ProductManagementApplicationService;
 import com.zappshop.product.catalog.application.product.query.PageModel;
 import com.zappshop.product.catalog.application.product.query.ProductDetailOutput;
-import com.zappshop.product.catalog.presentation.application.product.query.ProductDetailOutputTestDataBuilder;
 import com.zappshop.product.catalog.application.product.query.ProductQueryService;
+import com.zappshop.product.catalog.presentation.ProductController;
+import com.zappshop.product.catalog.presentation.application.product.query.ProductDetailOutputTestDataBuilder;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,9 +17,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
-import org.springframework.restdocs.mockmvc.MockMvcRestDocumentationConfigurer;
 import org.springframework.restdocs.operation.preprocess.Preprocessors;
-import org.springframework.restdocs.templates.TemplateFormat;
 import org.springframework.restdocs.templates.TemplateFormats;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
