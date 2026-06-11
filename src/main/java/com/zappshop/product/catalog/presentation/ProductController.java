@@ -47,4 +47,10 @@ public class ProductController {
         return productQueryService.filter(size, number);
 
     }
+
+    @DeleteMapping("{productId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable UUID productId){
+        productManagementApplicationService.disable(productId);
+    }
 }
