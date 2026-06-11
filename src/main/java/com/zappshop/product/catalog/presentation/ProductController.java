@@ -27,6 +27,13 @@ public class ProductController {
         return productQueryService.findById(productId);
     }
 
+    @PutMapping("{productId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ProductDetailOutput update(@PathVariable UUID productId, @RequestBody @Valid ProductInput input) {
+        productManagementApplicationService.update(productId, input);
+        return productQueryService.findById(productId);
+    }
+
     @GetMapping("{productId}")
     public ProductDetailOutput findById(@PathVariable UUID productId) {
         return productQueryService.findById(productId);
